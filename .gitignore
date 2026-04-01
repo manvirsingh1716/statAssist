@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+
+# Secrets and local credentials
+client_secret_*.json
+
+# Local databases
+*.db
+
+# Python cache
+__pycache__/
+*.py[cod]
