@@ -3,15 +3,15 @@ import { GoogleLogin } from '@react-oauth/google'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { Feedback } from '../components/Feedback'
-import { useAuth } from '../hooks/useAuth'
-import { apiService } from '../services/api'
+import { Feedback } from '../../components/Feedback'
+import { useAuth } from '../../hooks/useAuth'
+import { apiService } from '../../services/api'
 
-export function RegisterPage() {
+export function LoginPage() {
   const navigate = useNavigate()
   const { login } = useAuth()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('demo@nocodeml.local')
+  const [password, setPassword] = useState('password123')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const hasGoogleClientId = Boolean(import.meta.env.VITE_GOOGLE_CLIENT_ID)
@@ -22,11 +22,11 @@ export function RegisterPage() {
     setError(null)
 
     try {
-      const response = await apiService.register(email, password)
+      const response = await apiService.login(email, password)
       login({ email: response.user.email, token: response.token })
-      navigate('/', { replace: true })
+      navigate('/app', { replace: true })
     } catch {
-      setError('Registration failed')
+      setError('Login failed')
     } finally {
       setLoading(false)
     }
@@ -44,7 +44,7 @@ export function RegisterPage() {
     try {
       const response = await apiService.loginWithGoogle(credential)
       login({ email: response.user.email, token: response.token })
-      navigate('/', { replace: true })
+      navigate('/app', { replace: true })
     } catch {
       setError('Google login failed')
     } finally {
@@ -55,19 +55,20 @@ export function RegisterPage() {
   return (
     <section className="auth-shell auth-layout">
       <article className="auth-hero card-like">
-        <p className="auth-kicker">Create Workspace</p>
-        <h2>Start building machine learning models in minutes.</h2>
-        <p className="muted">Join a free platform made for teams and individuals who want outcomes, not complexity.</p>
+        <p className="auth-kicker">NoCodeML</p>
+        <h2>Professional ML workflows, zero code required.</h2>
+        <p className="muted">Access your workspace to upload data, prepare features, train models, and review outcomes.</p>
         <ul className="feature-list">
-          <li>Upload and inspect data instantly</li>
-          <li>Prepare datasets with guided controls</li>
-          <li>Train and evaluate models in one workflow</li>
+          <li>Free to use</li>
+          <li>Community-supported</li>
+          <li>Step-by-step model building</li>
         </ul>
       </article>
 
       <article className="auth-card auth-panel">
-        <p className="auth-kicker">Register</p>
-        <h2>Create an Account</h2>
+        <p className="auth-kicker">Sign In</p>
+        <h2>Welcome Back</h2>
+        <p className="muted">Use your account credentials to continue.</p>
 
         <form className="auth-form" onSubmit={handleSubmit}>
           <label>
@@ -83,7 +84,6 @@ export function RegisterPage() {
           <label>
             Password
             <input
-              minLength={3}
               onChange={(event) => setPassword(event.target.value)}
               required
               type="password"
@@ -92,7 +92,7 @@ export function RegisterPage() {
           </label>
 
           <button disabled={loading} type="submit">
-            Create Account
+            Sign In
           </button>
         </form>
 
@@ -103,14 +103,14 @@ export function RegisterPage() {
               onSuccess={(credentialResponse) => {
                 void handleGoogleLogin(credentialResponse.credential)
               }}
-              text="signup_with"
+              text="signin_with"
             />
           </div>
         ) : null}
 
         <Feedback error={error} loading={loading} />
         <p className="muted">
-          Already have an account? <Link to="/login">Sign in</Link>
+          New user? <Link to="/register">Create account</Link>
         </p>
       </article>
     </section>

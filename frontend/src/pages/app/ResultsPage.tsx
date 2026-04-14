@@ -1,7 +1,7 @@
 import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { Link } from 'react-router-dom'
 
-import { getModelResult } from '../utils/storage'
+import { getModelResult } from '../../utils/storage'
 
 export function ResultsPage() {
   const result = getModelResult()
@@ -17,7 +17,7 @@ export function ResultsPage() {
         <article className="card-like empty-state">
           <h3>No trained model found</h3>
           <p className="muted">Complete the training step to unlock metrics, coefficients, and prediction analysis.</p>
-          <Link className="button-link" to="/model-training">
+          <Link className="button-link" to="/app/model-training">
             Go to Model Training
           </Link>
         </article>

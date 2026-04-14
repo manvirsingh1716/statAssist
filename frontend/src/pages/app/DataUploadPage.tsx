@@ -2,12 +2,12 @@ import type { ChangeEvent } from 'react'
 import { useEffect, useState } from 'react'
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
-import { DataTable } from '../components/DataTable'
-import { Feedback } from '../components/Feedback'
-import { StatsGrid } from '../components/StatsGrid'
-import { apiService } from '../services/api'
-import type { DataPreviewResponse, VisualizationResponse } from '../types'
-import { getDatasetId, setDatasetId } from '../utils/storage'
+import { DataTable } from '../../components/DataTable'
+import { Feedback } from '../../components/Feedback'
+import { StatsGrid } from '../../components/StatsGrid'
+import { apiService } from '../../services/api'
+import type { DataPreviewResponse, VisualizationResponse } from '../../types'
+import { getDatasetId, setDatasetId } from '../../utils/storage'
 
 export function DataUploadPage() {
   const [dataset, setDataset] = useState<DataPreviewResponse | null>(null)

@@ -23,11 +23,11 @@ export function StatsGrid({ stats }: StatsGridProps) {
       {entries.map(([column, value]) => (
         <article className="stat-card" key={column}>
           <h4>{column}</h4>
-          <p>Mean: {formatMetric(value.mean)}</p>
-          <p>Median: {formatMetric(value.median)}</p>
-          <p>Min: {formatMetric(value.min)}</p>
-          <p>Max: {formatMetric(value.max)}</p>
-          <p>Std: {formatMetric(value.std)}</p>
+          <p>Mean: <strong>{formatMetric(value.mean)}</strong></p>
+          <p>Median: <strong>{formatMetric(value.median)}</strong></p>
+          <p>Min: <strong>{formatMetric(value.min)}</strong></p>
+          <p>Max: <strong>{formatMetric(value.max)}</strong></p>
+          <p>Std: <strong>{formatMetric(value.std)}</strong></p>
         </article>
       ))}
     </div>

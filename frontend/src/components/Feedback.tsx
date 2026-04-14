@@ -5,11 +5,20 @@ interface FeedbackProps {
 
 export function Feedback({ loading, error }: FeedbackProps) {
   if (loading) {
-    return <p className="muted">Loading...</p>
+    return (
+      <div className="feedback feedback-loading" role="status" aria-live="polite">
+        <span className="feedback-dot" />
+        <p>Working on your request. This should only take a moment.</p>
+      </div>
+    )
   }
 
   if (error) {
-    return <p className="error-text">{error}</p>
+    return (
+      <div className="feedback feedback-error" role="alert">
+        <p>Something did not go as expected. Please try again.</p>
+      </div>
+    )
   }
 
   return null

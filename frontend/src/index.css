@@ -1,36 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap');
 
 :root {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Manrope', sans-serif;
   line-height: 1.45;
   font-weight: 400;
-  color: #1f2638;
+  color: #142033;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f6f9;
+  background-color: #f5f7fb;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at 6% 10%, rgba(66, 118, 255, 0.14), transparent 30%),
-    radial-gradient(circle at 84% 92%, rgba(39, 72, 155, 0.1), transparent 24%),
-    #f5f6f9;
+    radial-gradient(circle at 6% 10%, rgba(52, 123, 214, 0.2), transparent 34%),
+    radial-gradient(circle at 87% 90%, rgba(15, 83, 182, 0.15), transparent 26%),
+    linear-gradient(180deg, #f3f7fd, #f5f7fb 56%);
 }
 
 h1,
 h2,
 h3,
 h4 {
-  color: #16363d;
-  font-family: 'Space Grotesk', sans-serif;
+  color: #101b2d;
+  font-family: 'Sora', sans-serif;
 }
 
 a {
-  color: #1644b6;
+  color: #0d5bd7;
 }
 
 #root {

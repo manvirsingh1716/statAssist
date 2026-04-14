@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { Link } from 'react-router-dom'
 
-import { Feedback } from '../components/Feedback'
-import { StatsGrid } from '../components/StatsGrid'
-import { apiService } from '../services/api'
-import type { DataPreviewResponse, VisualizationResponse } from '../types'
-import { getDatasetId, setDatasetId } from '../utils/storage'
+import { Feedback } from '../../components/Feedback'
+import { StatsGrid } from '../../components/StatsGrid'
+import { apiService } from '../../services/api'
+import type { DataPreviewResponse, VisualizationResponse } from '../../types'
+import { getDatasetId, setDatasetId } from '../../utils/storage'
 
 export function HomePage() {
   const [dataset, setDataset] = useState<DataPreviewResponse | null>(null)
@@ -49,7 +49,7 @@ export function HomePage() {
         <article className="card-like empty-state">
           <h3>No active dataset yet</h3>
           <p className="muted">Upload a CSV file to begin your first ML workflow.</p>
-          <Link className="button-link" to="/data-upload">
+          <Link className="button-link" to="/app/data-upload">
             Go to Data Upload
           </Link>
         </article>

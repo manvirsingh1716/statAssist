@@ -25,8 +25,8 @@ export function LoginPage() {
       const response = await apiService.login(email, password)
       login({ email: response.user.email, token: response.token })
       navigate('/', { replace: true })
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Login failed')
+    } catch {
+      setError('Login failed')
     } finally {
       setLoading(false)
     }
@@ -45,19 +45,30 @@ export function LoginPage() {
       const response = await apiService.loginWithGoogle(credential)
       login({ email: response.user.email, token: response.token })
       navigate('/', { replace: true })
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Google login failed')
+    } catch {
+      setError('Google login failed')
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <section className="auth-shell">
-      <article className="auth-card">
-        <p className="auth-kicker">Data Science Dashboard</p>
+    <section className="auth-shell auth-layout">
+      <article className="auth-hero card-like">
+        <p className="auth-kicker">NoCodeML</p>
+        <h2>Professional ML workflows, zero code required.</h2>
+        <p className="muted">Access your workspace to upload data, prepare features, train models, and review outcomes.</p>
+        <ul className="feature-list">
+          <li>Free to use</li>
+          <li>Community-supported</li>
+          <li>Step-by-step model building</li>
+        </ul>
+      </article>
+
+      <article className="auth-card auth-panel">
+        <p className="auth-kicker">Sign In</p>
         <h2>Welcome Back</h2>
-        <p className="muted">Sign in with an account you have already registered.</p>
+        <p className="muted">Use your account credentials to continue.</p>
 
         <form className="auth-form" onSubmit={handleSubmit}>
           <label>
@@ -86,7 +97,7 @@ export function LoginPage() {
         </form>
 
         {hasGoogleClientId ? (
-          <div style={{ marginTop: '0.75rem' }}>
+          <div className="oauth-wrap">
             <GoogleLogin
               onError={() => setError('Google login was cancelled or failed.')}
               onSuccess={(credentialResponse) => {

@@ -1,11 +1,11 @@
 import type { FormEvent } from 'react'
 import { useEffect, useState } from 'react'
 
-import { DataTable } from '../components/DataTable'
-import { Feedback } from '../components/Feedback'
-import { apiService } from '../services/api'
-import type { DataPreviewResponse } from '../types'
-import { getDatasetId, setDatasetId } from '../utils/storage'
+import { DataTable } from '../../components/DataTable'
+import { Feedback } from '../../components/Feedback'
+import { apiService } from '../../services/api'
+import type { DataPreviewResponse } from '../../types'
+import { getDatasetId, setDatasetId } from '../../utils/storage'
 
 const MISSING_OPTIONS = [
   { label: 'Drop Rows', value: 'drop' },

@@ -17,9 +17,12 @@ export function WorkflowProgress({ activePath }: WorkflowProgressProps) {
 
         return (
           <li className={`workflow-item ${isActive ? 'active' : ''} ${isCompleted ? 'done' : ''}`} key={step.id}>
-            <NavLink className="workflow-link" to={step.to} end={step.to === '/'}>
-              <span className="workflow-index">{index + 1}</span>
-              <span>{step.shortLabel}</span>
+            <NavLink className="workflow-link" to={step.to} end={step.to === '/app'}>
+              <span className="workflow-index">{isCompleted ? '✓' : index + 1}</span>
+              <span className="workflow-copy">
+                <strong>{step.shortLabel}</strong>
+                <small>{step.objective}</small>
+              </span>
             </NavLink>
           </li>
         )

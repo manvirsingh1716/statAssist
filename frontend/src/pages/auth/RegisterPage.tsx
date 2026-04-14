@@ -3,9 +3,9 @@ import { GoogleLogin } from '@react-oauth/google'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { Feedback } from '../components/Feedback'
-import { useAuth } from '../hooks/useAuth'
-import { apiService } from '../services/api'
+import { Feedback } from '../../components/Feedback'
+import { useAuth } from '../../hooks/useAuth'
+import { apiService } from '../../services/api'
 
 export function RegisterPage() {
   const navigate = useNavigate()
@@ -24,7 +24,7 @@ export function RegisterPage() {
     try {
       const response = await apiService.register(email, password)
       login({ email: response.user.email, token: response.token })
-      navigate('/', { replace: true })
+      navigate('/app', { replace: true })
     } catch {
       setError('Registration failed')
     } finally {
@@ -44,7 +44,7 @@ export function RegisterPage() {
     try {
       const response = await apiService.loginWithGoogle(credential)
       login({ email: response.user.email, token: response.token })
-      navigate('/', { replace: true })
+      navigate('/app', { replace: true })
     } catch {
       setError('Google login failed')
     } finally {

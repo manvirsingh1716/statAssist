@@ -2,10 +2,10 @@ import type { FormEvent } from 'react'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { Feedback } from '../components/Feedback'
-import { apiService } from '../services/api'
-import type { DataPreviewResponse } from '../types'
-import { getDatasetId, setDatasetId, setModelResult } from '../utils/storage'
+import { Feedback } from '../../components/Feedback'
+import { apiService } from '../../services/api'
+import type { DataPreviewResponse } from '../../types'
+import { getDatasetId, setDatasetId, setModelResult } from '../../utils/storage'
 
 export function ModelTrainingPage() {
   const navigate = useNavigate()
@@ -72,7 +72,7 @@ export function ModelTrainingPage() {
         random_state: 42,
       })
       setModelResult(result)
-      navigate('/results')
+      navigate('/app/results')
     } catch {
       setError('Model training failed')
     } finally {
