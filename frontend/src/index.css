@@ -1,36 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 :root {
-  font-family: 'Manrope', sans-serif;
-  line-height: 1.45;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
   font-weight: 400;
-  color: #142033;
+  color: #e2e8f0; /* Slate 200 */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f7fb;
+  background-color: #0b0f19; /* Deep dark background */
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    radial-gradient(circle at 6% 10%, rgba(52, 123, 214, 0.2), transparent 34%),
-    radial-gradient(circle at 87% 90%, rgba(15, 83, 182, 0.15), transparent 26%),
-    linear-gradient(180deg, #f3f7fd, #f5f7fb 56%);
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 25%),
+    linear-gradient(180deg, #0b0f19 0%, #111827 100%);
+  background-attachment: fixed;
 }
 
 h1,
 h2,
 h3,
-h4 {
-  color: #101b2d;
-  font-family: 'Sora', sans-serif;
+h4,
+h5,
+h6 {
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.02em;
 }
 
 a {
-  color: #0d5bd7;
+  color: #38bdf8; /* Cyan 400 */
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+a:hover {
+  color: #7dd3fc; /* Cyan 300 */
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
 }
 
 #root {

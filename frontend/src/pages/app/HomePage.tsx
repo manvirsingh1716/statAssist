@@ -87,14 +87,15 @@ export function HomePage() {
               <div className="chart-wrap">
                 <ResponsiveContainer height={300} width="100%">
                   <LineChart data={chartData.points}>
-                    <CartesianGrid strokeDasharray="4 4" />
-                    <XAxis dataKey={chartData.x_axis} />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    {chartData.series_columns.map((column) => (
-                      <Line dataKey={column} key={column} strokeWidth={2} type="monotone" />
-                    ))}
+                    <CartesianGrid stroke="#334155" strokeDasharray="4 4" />
+                    <XAxis dataKey={chartData.x_axis} stroke="#cbd5e1" />
+                    <YAxis stroke="#cbd5e1" />
+                    <Tooltip contentStyle={{ backgroundColor: '#1e293b', borderColor: '#475569', color: '#f8fafc' }} itemStyle={{ color: '#06b6d4' }} />
+                    <Legend wrapperStyle={{ color: '#cbd5e1' }} />
+                    {chartData.series_columns.map((column, index) => {
+                      const colors = ['#06b6d4', '#a855f7', '#10b981', '#f43f5e', '#f59e0b'];
+                      return <Line dataKey={column} key={column} stroke={colors[index % colors.length]} strokeWidth={3} type="monotone" dot={{ r: 4, strokeWidth: 2 }} activeDot={{ r: 6, strokeWidth: 0 }} />
+                    })}
                   </LineChart>
                 </ResponsiveContainer>
               </div>
