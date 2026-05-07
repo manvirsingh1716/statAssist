@@ -1,6 +1,6 @@
-# ModelPath (React + FastAPI)
+# statAssist (React + FastAPI)
 
-ModelPath is a guided machine learning learning studio focused on educational workflows.
+statAssist is a guided machine learning learning studio focused on educational workflows.
 
 ## Foundation Documents
 
